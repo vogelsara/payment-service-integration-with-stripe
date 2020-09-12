@@ -1,8 +1,15 @@
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 const express = require('express');
 const app = express();
+const fs = require('fs');
+
 app.use(express.static('./public'));
 const YOUR_DOMAIN = 'http://localhost:4242';
+
+app.get('/products', (req, res) => {
+  let products = JSON.parse(fs.readFileSync('./products.json'));
+  res.status(200).json(products);
+});
 
 app.post('/create-session', async (req, res) => {
   const session = await stripe.checkout.sessions.create({

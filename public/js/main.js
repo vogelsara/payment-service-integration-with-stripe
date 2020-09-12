@@ -2,12 +2,8 @@
 var listOfProducts;
 
 function loadProducts() {
-    fetch("./products.json")
-    .then(function(response) {
-        return response.json();
-    })
-    .then(function(products) {
-        listOfProducts = products;
+    makeRequest("GET", "/products", {}, function(res) {
+        listOfProducts = JSON.parse(res);
         addProductsToWebpage(listOfProducts);
     });
 }
