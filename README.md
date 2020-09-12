@@ -26,7 +26,7 @@ The backend of the project is built with NodeJS. For the frontend part I reused 
 
 #### Installation instructions
 
-1. To get this project you have to clone it by `git clone https://github.com/vogelsara/Cocktail-API.git` (alternatively you can download the folder as a zip and unzip it)
+1. To get this project you have to clone it by `git clone https://github.com/vogelsara/payment-service-integration-with-stripe.git` (alternatively you can download the folder as a zip and unzip it)
 2. Move to the folder: `cd payment-service-integration-with-stripe`
 3. Get the dependencies by runnin the `npm install` command inside the folder.
 4. Start the server by `node server.js` so the server starts to listen on port 3000
