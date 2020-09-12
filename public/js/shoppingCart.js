@@ -1,15 +1,14 @@
 function initShoppingCart() {  
-    if (!(getShoppingCartName() in localStorage)) {
-        localStorage.setItem(getShoppingCartName(), "[]");
-    }
-    let productsInCart = localStorage.getItem(getShoppingCartName());
-    let shoppingCart = JSON.parse(productsInCart);
-    
-    updateNumberOfChosenProducts();
-    addShoppingCartTitleToMainContainer();
-    addProductsToShoppingCartPage(shoppingCart);
-    addTotalPriceToMainContainer(shoppingCart);
-    addCheckoutButtonToMainContainer();
+    makeRequest("GET", "/cart", {}, function(responseText) {
+        document.getElementById("mainContent").innerHTML = "";
+        let shoppingCart = JSON.parse(responseText);
+        console.log(shoppingCart);
+        updateNumberOfChosenProducts();
+        addShoppingCartTitleToMainContainer();
+        addProductsToShoppingCartPage(shoppingCart);
+        addTotalPriceToMainContainer(shoppingCart);
+        addCheckoutButtonToMainContainer();
+    });
 }
 
 function addShoppingCartTitleToMainContainer() {
@@ -94,21 +93,9 @@ function createDeleteButton(product) {
 }
 
 function onDeleteButtonClick(itemToDelete) {
-    let shoppingCartString = localStorage.getItem(getShoppingCartName());
-    let shoppingCart = JSON.parse(shoppingCartString);
-    let index = 0;
-    
-    for (var i = 0; i < shoppingCart.length; i++) {
-        if (itemToDelete.IdNr == shoppingCart[i].IdNr) {
-            index = i;
-        }
-    }
-    
-    shoppingCart.splice(index, 1);
-    localStorage.setItem(getShoppingCartName(), JSON.stringify(shoppingCart));
- 
-    document.getElementById("mainContent").innerHTML = "";
-    initShoppingCart();
+    makeRequest("DELETE", `/cart/${itemToDelete["id"]}`, {}, function(responseText) {
+        initShoppingCart();
+    });
 };
 
 function addTotalPriceToMainContainer(shoppingCart) {

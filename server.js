@@ -3,13 +3,42 @@ const express = require('express');
 const app = express();
 const fs = require('fs');
 
+app.use(express.json());
 app.use(express.static('./public'));
 const YOUR_DOMAIN = 'http://localhost:4242';
+
+let shoppingCart = [];
+let idIndex = 1;
 
 app.get('/products', (req, res) => {
   let products = JSON.parse(fs.readFileSync('./products.json'));
   res.status(200).json(products);
 });
+
+app.get('/cart', (req, res) => {
+  res.status(200).json(shoppingCart);
+})
+
+app.post('/cart', (req, res) => {
+  const product = {id: idIndex++, ...req.body};
+  shoppingCart.push(product);
+  res.status(201).json(product.id);
+});
+
+app.delete('/cart/:id', (req, res) => {
+  let idToDelete = req.params["id"];
+  let index = 0;
+  
+  for (var i = 0; i < shoppingCart.length; i++) {
+    if (idToDelete == shoppingCart[i].id) {
+      index = i;
+      break;
+    }
+  }
+  
+  shoppingCart.splice(index, 1);
+  res.status(200).json({});
+})
 
 app.post('/create-session', async (req, res) => {
   const session = await stripe.checkout.sessions.create({

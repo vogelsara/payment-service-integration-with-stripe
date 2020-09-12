@@ -9,16 +9,13 @@ function loadProducts() {
 }
 
 function initSite() {
-    if (!(getShoppingCartName() in localStorage)) {
-        localStorage.setItem(getShoppingCartName(), "[]");
-    }
     loadProducts();
     updateNumberOfChosenProducts();
 }
 
 function addProductsToWebpage(listOfProducts) {
     let divForThePictures = document.createElement("div");
-    divForThePictures.classList.add("container-fluid")
+    divForThePictures.classList.add("container-fluid");
 
     for(var i = 0; i < listOfProducts.length; i++) {
         divForTheProduct = createProductDiv();
@@ -88,17 +85,9 @@ function createShoppingButton(product) {
 
 function onShoppingProductButtonClick(product) {
     showAddedProductInSideBar(product);
-
-    let shoppingCartString = localStorage.getItem(getShoppingCartName());
-    let shoppingCartJson = JSON.parse(shoppingCartString);
-
-	let date = new Date();
-	let timeStamp = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds();	
-	product["IdNr"] = timeStamp;
-
-    shoppingCartJson.push(product);
-    localStorage.setItem(getShoppingCartName(), JSON.stringify(shoppingCartJson));
-    updateNumberOfChosenProducts();
+    makeRequest("POST", "/cart", product, function(responseText) {
+        updateNumberOfChosenProducts();
+    });
 }
 
 function showAddedProductInSideBar(showProduct) {
