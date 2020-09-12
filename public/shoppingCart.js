@@ -10,10 +10,7 @@ function initShoppingCart() {
     updateNumberOfChosenProducts();
     ProductsInKundvagnWebPage(productCartList);
     countTotalPrice();
-    displayTheLoggedInUsername();
     createFinishShoppingCardButton()
-    // //hide register/login from the begning as soon script loads. The to add is on loging for both sites
-    document.getElementById("loginButton").style.display = "none";
 }
 
 // Update the indicator in the navigation bar
@@ -185,7 +182,6 @@ function makeEmptyShoppingCart(){
         var theMainContainer = document.getElementById("mainContent");
         theMainContainer.innerHTML = ""
         
-        
         var divForThanks  =document.createElement("div")
         divForThanks.classList.add("text-center", "displayMessageSluförDittKöp")
         var h1 = document.createElement("p")
@@ -193,29 +189,9 @@ function makeEmptyShoppingCart(){
         divForThanks.appendChild(h1)
         var mainDiv = document.getElementById("mainContent");
         mainDiv.appendChild(divForThanks)
-        
-
-    }
-   
-}
-function displayTheLoggedInUsername() {
-    var loggedInUserDivs = document.getElementsByClassName('loggedInUsernameDiv');
-    var loggedInUsername = localStorage.getItem("loggedInAs");
-    
-    for(var i = 0; i < loggedInUserDivs.length; i++){
-        var loggedInUserDiv = loggedInUserDivs[i];
-        if (!(loggedInUsername === "")) {
-            loggedInUserDiv.innerText = "Hi, " + loggedInUsername + "!";
-            document.getElementById("logoutButton").style.display = "inline-block";
-            document.getElementById("loginButton").style.display = "none";
-        } else {
-            document.getElementById("logoutButton").style.display = "none";
-            document.getElementById("loginButton").style.display = "inline-block";
-        }
     }
 }
 
 function getShoppingCartName() {
-    var loggedInUsername = localStorage.getItem("loggedInAs");
-    return "shoppingCart" + loggedInUsername;
+    return "shoppingCart";
 }

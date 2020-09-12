@@ -6,14 +6,9 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- style css should be here because of some common css styles -->
     <link rel="stylesheet" href="css/commonStyleForAll.css">
     <link rel="stylesheet" href="css/kundvagn.css">
     <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="css/loginMobile.css">
-    <link rel="stylesheet" href="css/loginTablet.css">
-    <link rel="stylesheet" href="css/loginPc.css">
-    <!-- index has some common css with kundvag specially the navbar -->
     <link rel="stylesheet" href="css/indexMobile.css">
     <link rel="stylesheet" href="css/indexTablet.css">
     <link rel="stylesheet" href="css/indexXl.css">
@@ -21,16 +16,11 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
     <script src="./shoppingCart.js"></script>
-    <script src="./login.js"></script>
 </head>
 <body onload="initShoppingCart()">
     <nav class="container-fluid fixed-top navbar  p=0 fontStyleNavbarC fontStyleNavbarT">
         <a class="text-white navbar-text font-weight-bold" href="index.html">TechStore</a>
         <div>
-            <div class="loggedInUsernameDiv"></div>
-            <i class="fas fa-sign-in-alt iconSign" onclick=" hideShow()" style="color: white"></i>
-            <a id="loginButton" href="login.html"><button class="go-to-login-page-button">Log in / Register</button></a>
-            <button id="logoutButton" class="go-to-login-page-button" onclick="logOut()" style="display: none;">Log out</button>
             <div id="number-of-chosen-products" class="text-white navbar-text"></div>
             <a class="fas fa-shopping-cart text-white navbar-text" href="kundvagn.html" target="_self"></a>
         </div>

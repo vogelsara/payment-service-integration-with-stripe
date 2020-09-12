@@ -2,10 +2,6 @@
 /* Index css for tablet */
 @media screen and (min-width: 760px) and (max-width: 1023px){
 
-    .register-avatar-container{
-        margin: 0;
-    }
-
     .fontStyleNavbarT{
         font-size: 2.1em;
 

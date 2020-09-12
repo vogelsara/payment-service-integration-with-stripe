@@ -1,9 +1,4 @@
 
-/* This is needed for see if somebody is logged in or not */
-if (!("loggedInAs" in localStorage)) {
-    localStorage.setItem("loggedInAs", "");
-}
-
 /** Get products from the json file and store it in a gobal variable */
 var listOfProducts;
 
@@ -16,8 +11,6 @@ function loadProducts() {
         listOfProducts = products;
         addProductsToWebpage(listOfProducts);
     });
-    //hide register/login from the begning as soon script loads. The to add is on loging for both sites
-    document.getElementById("loginButton").style.display = "none";
 }
 
 function initSite() {
@@ -26,8 +19,6 @@ function initSite() {
     }
     loadProducts();
     updateNumberOfChosenProducts(); // Here we call the function to which we count the number of chosen products
-    // This would also be a good place to initialize other parts of the UI
-    displayTheLoggedInUsername();
 }
 
 /** Uses the loaded products data to create a visible product list on the website */
@@ -36,7 +27,7 @@ function addProductsToWebpage(listOfProducts) {
     var divForThePictures = document.createElement("div");
     divForThePictures.classList.add("container-fluid")
 
-    // We loop threw every single product
+    // We loop through every single product
     for(var i = 0; i < listOfProducts.length; i++) {
         //we create a function and send our index of products then we call those function here
         divForTheProduct = createProductDiv();
@@ -143,23 +134,6 @@ function showAddedProductInSideBar(showProduct) {
     setTimeout(function() { document.getElementById("sideBar").style.width = 0; }, 3000);
 }
 
-function displayTheLoggedInUsername() {
-    var loggedInUserDivs = document.getElementsByClassName('loggedInUsernameDiv');
-    var loggedInUsername = localStorage.getItem("loggedInAs");
-    for(var i = 0; i < loggedInUserDivs.length; i++){
-        var loggedInUserDiv = loggedInUserDivs[i];
-        if (!(loggedInUsername === "")) {
-            loggedInUserDiv.innerText = "Hi, " + loggedInUsername + "!";
-            document.getElementById("logoutButton").style.display = "inline-block";
-            document.getElementById("loginButton").style.display = "none";
-        } else {
-            document.getElementById("logoutButton").style.display = "none";
-        }
-    }
-}
-
-
 function getShoppingCartName() {
-    var loggedInUsername = localStorage.getItem("loggedInAs");
-    return "shoppingCart" + loggedInUsername;
+    return "shoppingCart";
 }

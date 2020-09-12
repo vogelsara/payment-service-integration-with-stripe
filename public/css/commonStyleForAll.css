@@ -15,37 +15,13 @@ a:hover{
 }
 
 
-.login-button{
-    background-color: #5596F5;
-    color: #fff;
-}
-
-
 .navbar {
     margin:0 !important;
     background-color: #212121;
 }
 
-
-.login-button{
-    background-color: #5596F5;
-    color: #fff;
-}
-
 .productRow {
     margin-top: -1em;
-}
-
-.go-to-login-page-button{
-    background-color: transparent;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-
-}
-
-.go-to-login-page-button a{
-    text-decoration: none;
 }
 
 #number-of-chosen-products{
