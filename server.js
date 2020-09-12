@@ -41,7 +41,7 @@ app.delete('/cart/:id', (req, res) => {
 });
 
 app.post('/order', (req, res) => {
-  if (shoppingCart) {
+  if (shoppingCart.length > 0) {
     let orders;
     try {
       orders = JSON.parse(fs.readFileSync('orders.json'));
