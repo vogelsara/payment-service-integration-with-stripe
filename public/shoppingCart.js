@@ -1,4 +1,3 @@
-
 function initShoppingCart() {
     
     if (!(getShoppingCartName() in localStorage)) {
@@ -171,25 +170,33 @@ function createFinishShoppingCardButton(){
     divForButton.appendChild(button)
     mainDiv.appendChild(divForButton)
 
-    button.setAttribute("onclick", "makeEmptyShoppingCart()")
+    button.setAttribute("onclick", "onCheckoutButtonClick()")
     return button
 }
 
-function makeEmptyShoppingCart(){
-    if ((getShoppingCartName() in localStorage)) {
-        localStorage.setItem(getShoppingCartName(), "[]");
-        updateNumberOfChosenProducts()
-        var theMainContainer = document.getElementById("mainContent");
-        theMainContainer.innerHTML = ""
-        
-        var divForThanks  =document.createElement("div")
-        divForThanks.classList.add("text-center", "displayMessageSluförDittKöp")
-        var h1 = document.createElement("p")
-        h1.innerText = "Tack för ditt köp!"
-        divForThanks.appendChild(h1)
-        var mainDiv = document.getElementById("mainContent");
-        mainDiv.appendChild(divForThanks)
-    }
+function onCheckoutButtonClick(){
+    var stripe = Stripe("pk_test_TYooMQauvdEDq54NiTphI7jx");
+
+    fetch("/create-session", {
+        method: "POST",
+        })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (session) {
+            return stripe.redirectToCheckout({ sessionId: session.id });
+        })
+        .then(function (result) {
+            // If redirectToCheckout fails due to a browser or network
+            // error, you should display the localized error message to your
+            // customer using error.message.
+            if (result.error) {
+            alert(result.error.message);
+            }
+        })
+        .catch(function (error) {
+            console.error("Error:", error);
+        });
 }
 
 function getShoppingCartName() {
