@@ -41,34 +41,34 @@ function createProductDiv() {
     return addingSingleProduct;
 }
 
-function createProductName(listOfProducts) {
+function createProductName(product) {
     let productName = document.createElement("h2");
-    productName.innerText = listOfProducts.title;
+    productName.innerText = product.title;
     productName.classList.add("text-center");
     return productName;
 }
 
-function createProductImage(listOfProducts) {
+function createProductImage(product) {
     let productImg = document.createElement("img");
     productImg.classList.add("widthtImg");
-    productImg.src = listOfProducts.image;
+    productImg.src = product.image;
     return productImg;
 }
 
-function createProductPrice(listOfProducts) {
+function createProductPrice(product) {
     let productPrice = document.createElement("h3");
-    productPrice.innerText = listOfProducts.price +"kr";
+    productPrice.innerText = product.price +"kr";
     return productPrice;
 }
 
-function createProductDescription(listOfProducts) {
+function createProductDescription(product) {
     let productDescription = document.createElement("h4");
-    productDescription.innerText = listOfProducts.description;
+    productDescription.innerText = product.description;
     productDescription.classList.add("text-center");
     return productDescription;
 }
 
-function createShoppingButton(listOfProducts) { 
+function createShoppingButton(product) { 
     let shoppingProductButton = document.createElement("button");
 
     let spanForButtonIcon = document.createElement("span");
@@ -82,21 +82,21 @@ function createShoppingButton(listOfProducts) {
     shoppingProductButton.appendChild(spanForButtonText);
     
     shoppingProductButton.classList.add("shopping-button", "btn-sm");
-    shoppingProductButton.onclick = function() { onShoppingProductButtonClick(listOfProducts); };
+    shoppingProductButton.onclick = function() { onShoppingProductButtonClick(product); };
     return shoppingProductButton;
 }
 
-function onShoppingProductButtonClick(listOfProducts) {
-    showAddedProductInSideBar(listOfProducts);
+function onShoppingProductButtonClick(product) {
+    showAddedProductInSideBar(product);
 
     let shoppingCartString = localStorage.getItem(getShoppingCartName());
     let shoppingCartJson = JSON.parse(shoppingCartString);
 
 	let date = new Date();
 	let timeStamp = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds();	
-	listOfProducts["IdNr"] = timeStamp;
+	product["IdNr"] = timeStamp;
 
-    shoppingCartJson.push(listOfProducts);
+    shoppingCartJson.push(product);
     localStorage.setItem(getShoppingCartName(), JSON.stringify(shoppingCartJson));
     updateNumberOfChosenProducts();
 }
