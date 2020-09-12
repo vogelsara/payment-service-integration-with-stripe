@@ -17,8 +17,8 @@ function addShoppingCartTitleToMainContainer() {
     cartHeader.classList.add("container", "text-center", "font-weight-bold");
     
     let cartTitle = document.createElement("h1");
-    cartTitle.innerHTML = '<i class="fas fa-shopping-cart"></i>' + "Kundvagn";
-    cartTitle.classList.add("h1-kundvagn");
+    cartTitle.innerHTML = '<i class="fas fa-shopping-cart"></i>' + "Shopping cart";
+    cartTitle.classList.add("h1-cart");
     cartHeader.appendChild(cartTitle);
 
     let mainContainer = document.getElementById("mainContent");
@@ -83,7 +83,7 @@ function createDeleteButton(product) {
     deleteButton.onclick = function() { onDeleteButtonClick(product) };
 
     let spanForDeleteButtonText = document.createElement("span");
-    spanForDeleteButtonText.innerText = "Ta bort";
+    spanForDeleteButtonText.innerText = "Remove";
     deleteButton.appendChild(spanForDeleteButtonText);
 
     let spanForDeleteButtonIcon = document.createElement("span");
@@ -117,7 +117,7 @@ function addTotalPriceToMainContainer(shoppingCart) {
 
     let h3ForTotal = document.createElement("h3");
     h3ForTotal.classList.add("h3ForTotal");
-    h3ForTotal.innerText = "Totalt Pris: " + calculateTotalPrice(shoppingCart) + " kr";
+    h3ForTotal.innerText = "Total price: " + calculateTotalPrice(shoppingCart) + " kr";
     divForTotalPrice.appendChild(h3ForTotal);
 
     let main = document.getElementById("mainContent");
@@ -142,7 +142,7 @@ function addCheckoutButtonToMainContainer(){
     checkoutButton.appendChild(checkSymbol);
 
     let text = document.createElement("span");
-    text.innerText ="Slutför ditt köp";
+    text.innerText ="Go to checkout";
     checkoutButton.appendChild(text);
     
     let checkoutButtonContainer = document.createElement("div");

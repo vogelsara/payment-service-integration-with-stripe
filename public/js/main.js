@@ -82,7 +82,7 @@ function createShoppingButton(listOfProducts) {
     shoppingProductButton.appendChild(spanForButtonIcon);
 
     let spanForButtonText = document.createElement("span");
-    spanForButtonText.innerText = "Lägg till i kundvagnen";
+    spanForButtonText.innerText = "Add to cart";
     shoppingProductButton.appendChild(spanForButtonText);
     
     shoppingProductButton.classList.add("shopping-button", "btn-sm");
