@@ -1,5 +1,4 @@
 
-/** Get products from the json file and store it in a gobal variable */
 var listOfProducts;
 
 function loadProducts() {
@@ -18,24 +17,22 @@ function initSite() {
         localStorage.setItem(getShoppingCartName(), "[]");
     }
     loadProducts();
-    updateNumberOfChosenProducts(); // Here we call the function to which we count the number of chosen products
+    updateNumberOfChosenProducts();
 }
 
-/** Uses the loaded products data to create a visible product list on the website */
 function addProductsToWebpage(listOfProducts) {
-    // We create a div and put all products inside it
-    var divForThePictures = document.createElement("div");
+    let divForThePictures = document.createElement("div");
     divForThePictures.classList.add("container-fluid")
 
-    // We loop through every single product
     for(var i = 0; i < listOfProducts.length; i++) {
-        //we create a function and send our index of products then we call those function here
         divForTheProduct = createProductDiv();
-        createProductName(listOfProducts[i]);
-        createProductDescription(listOfProducts[i]);
-        createProductImage(listOfProducts[i]);
-        createProductPrice(listOfProducts[i]);
-        createShoppingButton(listOfProducts[i]);
+
+        let currentProduct = listOfProducts[i];
+        divForTheProduct.appendChild(createProductName(currentProduct));
+        divForTheProduct.appendChild(createProductDescription(currentProduct));
+        divForTheProduct.appendChild(createProductImage(currentProduct));
+        divForTheProduct.appendChild(createProductPrice(currentProduct));
+        divForTheProduct.appendChild(createShoppingButton(currentProduct));
         
         divForThePictures.appendChild(divForTheProduct);
     }
@@ -43,82 +40,71 @@ function addProductsToWebpage(listOfProducts) {
 }
     
 function createProductDiv() {
-    // we make a div for every property and call it from addProductToWebPage
-    var addingSingleProduct = document.createElement("div");
+    let addingSingleProduct = document.createElement("div");
     addingSingleProduct.classList.add("d-flex", "flex-column", "align-items-center", "pt-5", "backgroundOdd");
     return addingSingleProduct;
 }
-// Here comes the creating of the elements in separated functions
 
-// Creating h2 elements for the names of the products
 function createProductName(listOfProducts) {
-    var productName = document.createElement("h2");
+    let productName = document.createElement("h2");
     productName.innerText = listOfProducts.title;
     productName.classList.add("text-center");
-    divForTheProduct.appendChild(productName)
     return productName;
 }
 
-// Creating images of the products
 function createProductImage(listOfProducts) {
-    var productImg = document.createElement("img");
+    let productImg = document.createElement("img");
     productImg.classList.add("widthtImg");
     productImg.src = listOfProducts.image;
-    divForTheProduct.appendChild(productImg)
     return productImg;
 }
 
-
-// Creating h3 elements to add prices of the products
 function createProductPrice(listOfProducts) {
-    var productPrice = document.createElement("h3");
+    let productPrice = document.createElement("h3");
     productPrice.innerText = listOfProducts.price +"kr";
-    divForTheProduct.appendChild(productPrice)
+    return productPrice;
 }
 
-// Creating the descriptions of the products
 function createProductDescription(listOfProducts) {
-    var productDescription = document.createElement("h4");
+    let productDescription = document.createElement("h4");
     productDescription.innerText = listOfProducts.description;
     productDescription.classList.add("text-center");
-    divForTheProduct.appendChild(productDescription)
+    return productDescription;
 }
 
-// Creating shopping button here
 function createShoppingButton(listOfProducts) { 
-    var shoppingProductButton = document.createElement("button");
-    var spanForButtonText = document.createElement("span");
-    var spanForButtonIcon = document.createElement("span");
+    let shoppingProductButton = document.createElement("button");
+
+    let spanForButtonIcon = document.createElement("span");
+    let arrowIcon = document.createElement("i");
+    arrowIcon.classList.add("fas", "fa-cart-arrow-down", "own-fa-cart-arrow-down");
+    spanForButtonIcon.appendChild(arrowIcon);
     shoppingProductButton.appendChild(spanForButtonIcon);
-    shoppingProductButton.appendChild(spanForButtonText);
-    spanForButtonIcon.innerHTML = '<i class="fas fa-cart-arrow-down own-fa-cart-arrow-down"></i>';
+
+    let spanForButtonText = document.createElement("span");
     spanForButtonText.innerText = "Lägg till i kundvagnen";
+    shoppingProductButton.appendChild(spanForButtonText);
+    
     shoppingProductButton.classList.add("shopping-button", "btn-sm");
     shoppingProductButton.onclick = function() { onShoppingProductButtonClick(listOfProducts); };
-    divForTheProduct.appendChild(shoppingProductButton);
+    return shoppingProductButton;
 }
 
-// Handle shoppingProductButton
 function onShoppingProductButtonClick(listOfProducts) {
-
     showAddedProductInSideBar(listOfProducts);
 
-    var shoppingCartString = localStorage.getItem(getShoppingCartName());
-    var shoppingCartJson = JSON.parse(shoppingCartString);
+    let shoppingCartString = localStorage.getItem(getShoppingCartName());
+    let shoppingCartJson = JSON.parse(shoppingCartString);
 
-    // Add a property to the object to distinguish mobiles of the same brand = IdNr.
-	var date = new Date();
-	var timeStamp = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds();	
+	let date = new Date();
+	let timeStamp = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds() + ":" + date.getMilliseconds();	
 	listOfProducts["IdNr"] = timeStamp;
 
-    //push the new property with the chosen product into local storage
     shoppingCartJson.push(listOfProducts);
     localStorage.setItem(getShoppingCartName(), JSON.stringify(shoppingCartJson));
     updateNumberOfChosenProducts();
 }
 
-
-// shows products that were added to shopping cart with a slidebar
 function showAddedProductInSideBar(showProduct) {
     document.getElementById("sideBar").style.width = "25em";
     document.getElementById("prodTitle").innerText = showProduct.title;
