@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+
+<html>
+
+<head>
+    <title>TechStore</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/commonStyleForAll.css">
+    <link rel="stylesheet" href="css/loginMobile.css">
+    <link rel="stylesheet" href="css/loginTablet.css">
+    <link rel="stylesheet" href="css/loginPc.css">
+    <!-- because of the responsive navbar the index should be here -->
+    <link rel="stylesheet" href="css/indexMobile.css">
+    <link rel="stylesheet" href="css/indexTablet.css">
+    <link rel="stylesheet" href="css/indexXl.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <script src="./main.js"></script>
+    <script src="./login.js"></script>
+</head>
+
+<body>
+    <nav class="container-fluid fixed-top navbar  p=0 fontStyleNavbarC fontStyleNavbarT">
+        <a class="text-white navbar-text font-weight-bold" href="index.html">TechStore</a>
+    </nav>
+    <!-- Your header title and shopping cart button goes here  -->
+    <main class="login-main">
+
+        <!-- Log in form  -->
+        <h2 class="login-h2">Log in to your TechStore account</h2>
+
+        <form class="login-form">
+            <div class="avatar-container">
+                <img src="images/avatar.png" alt="Avatar" class="avatar">
+            </div>
+
+            <div class="login-container">
+                <label for="uname" class="login-labels"><b>Username</b></label>
+                <input id="loginUsername" type="text" placeholder="Enter Username" name="uname" required>
+
+                <label for="psw" class="login-labels"><b>Password</b></label>
+                <input id="loginPassword" type="password" placeholder="Enter Password" name="psw" required>
+
+                <button type="button" class="login-button" onclick="loginToThePage()">Login</button>
+            </div>
+
+            <div class="login-bottom-container" style="background-color:#f1f1f1">
+                <button type="button" class="cancelbtn">Cancel</button>
+                <button class="register-button" onclick="document.getElementById('id01').style.display='block'">Register</button>
+            </div>
+        </form>
+
+        <!-- Register form  -->
+        <div id="id01" class="modal">
+            <form class="modal-content animate register-form">
+                <div class="register-avatar-container">
+                    <img src="images/avatar.png" alt="Avatar" class="avatar">
+                </div>
+
+                <div class="register-container">
+                    <label for="uname" class="login-labels"><b>Username</b></label>
+                    <input id="registerUsername" type="text" placeholder="Enter Username" name="uname" required>
+
+                    <label for="psw" class="login-labels"><b>Password</b></label>
+                    <input id="registerPassword" type="password" placeholder="Enter Password" name="psw" required>
+
+                    <button class="blue-register-button" onclick="registerUser()">Register</button>
+
+                    <div class="register-bottom-container" style="background-color:#f1f1f1">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>

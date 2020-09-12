@@ -1,0 +1,45 @@
+/* css for mobile index */
+@media screen and (max-width: 759px) {
+    
+    h1{
+        font-size: 4vw !important;
+    }
+    
+    
+    h2{
+        font-size: 6vw !important;
+    }
+    
+    h3{
+        font-size: 4vw !important;
+        padding-top: 0.3em;
+    }
+    
+    h4 {
+        font-size: 3.8vw !important;
+        padding: 0.3em 0.5em;
+    }
+    
+    h2, h3, h4 {
+        font-weight: bold !important;
+    }
+
+    .widthtImg {
+        width: 85%;
+    }
+
+    .container-fluid {
+        height: auto;
+        font-size: 1.3em; 
+    } 
+    
+    .backgroundOdd:nth-child(even), .backgroundOdd:nth-child(odd) {
+        padding-top: 1.5em;
+        padding-bottom: 3.5em;
+    }
+    
+    #sideBar {
+        display: none;
+    }
+ 
+}

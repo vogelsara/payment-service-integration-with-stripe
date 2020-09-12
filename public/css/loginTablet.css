@@ -1,0 +1,26 @@
+@media screen and (min-width: 760px) and (max-width: 1299px){
+    .login-main{
+        padding: 6em 10em 6em 10em;
+    }
+    
+    .login-main h2{
+        font-size: 2vw !important;
+    }
+
+    .login-labels{
+        font-size: 1.5vw;
+    }
+
+    input[type=text], input[type=password] {
+        font-size: 1.5vw;
+    }
+
+    
+.register-button {
+    background-color: transparent !important;
+    margin-top: 1em;
+    color: #212121;
+    border: none;
+}
+
+}

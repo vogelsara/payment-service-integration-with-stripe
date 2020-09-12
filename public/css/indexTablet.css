@@ -1,0 +1,109 @@
+
+/* Index css for tablet */
+@media screen and (min-width: 760px) and (max-width: 1023px){
+
+    .register-avatar-container{
+        margin: 0;
+    }
+
+    .fontStyleNavbarT{
+        font-size: 2.1em;
+
+    }
+    .widthtImg {
+        width: 50%;
+        padding-top: 0.3em;
+    }
+    
+    h2{
+        font-size: 6vw !important;
+        font-weight: 650 !important;
+    }
+    
+    h3{
+        font-size: 2.5vw !important;
+        font-weight: 650 !important;
+        padding-top: 0.5em;
+    }
+    
+    h4 {
+        font-size: 2.6vw !important;
+        padding: 0 2em;
+        font-weight: 600 !important;
+    }
+    
+    .shopping-button {
+        font-size: 3vw !important;
+        font-weight: 525 !important;
+        padding: 0.4em !important;
+        margin-top: 0.6em; 
+    }
+
+    .container-fluid {
+        margin-top: 3em;
+    }
+
+    .backgroundOdd:nth-child(even) {
+        margin-bottom: 5em;
+        margin-top: 1em;
+    }
+    
+    .backgroundOdd:nth-child(odd) {
+        padding-top: 4em !important;
+        padding-bottom: 5em;
+        margin-right: -1em;
+        margin-left: -1em;
+    }
+
+    #sideBar {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1299px) {
+    
+    h2 {
+        font-size: 2.6em !important;
+        font-weight: 650 !important;
+    }
+
+    h4 {
+        font-size: 2vw !important;
+        margin-bottom: 1em !important;
+        font-weight: 650 !important;
+    }
+
+    h3 {
+        font-size: 2vw !important;
+        font-weight: 650 !important;
+        margin-top: 0.5em !important;
+    }
+
+    .widthtImg {
+        width: 40%;
+        padding-top: 0.3em;
+    }
+
+    .shopping-button {
+        font-size: 2.2vw !important;
+        font-weight: 500 !important;
+        padding: 0.4em !important;
+        margin-top: 0.6em; 
+    }
+
+    .backgroundOdd:nth-child(even) {
+        margin-bottom: 5em;
+        margin-top: 1em;
+    }
+    
+    .backgroundOdd:nth-child(odd) {
+        padding-top: 4em !important;
+        padding-bottom: 5em;
+        margin-right: -1em;
+        margin-left: -1em;
+    }
+
+    #sideBar {
+        display: none;
+    }
+}

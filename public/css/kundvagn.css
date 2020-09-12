@@ -1,0 +1,151 @@
+.displayMessageSluförDittKöp{
+    margin-top: 5em;
+    font-size: 3em;
+}
+#mainContent{
+    padding-top: 3em;
+    padding-bottom: 3em;
+}
+
+.h1-kundvagn{
+    font-size: 4vw !important;
+    font-weight: 700;
+    margin: 0.5em 0;
+}
+
+h1 i{
+    margin-right: 0.2em;
+}
+
+h5 {
+    margin-bottom: 1em !important;
+}
+.divProduct {
+    background-color: #F5F5F5;
+    margin: 2em 0.7em;
+    border: 2px solid #5596F5;
+    border-radius: 0.6em;
+    width: 22em;
+}
+
+.wideImg {
+    object-fit: contain;
+    height: 68%;
+    width: 70%;
+    padding-top: 1em;
+}
+
+.h3ForTotal{
+    margin-bottom: 1em;
+    font-weight: 625 !important;
+    font-size: 1.7em !important;
+}
+
+/*end of kundvagn*/
+
+@media screen and (min-width: 320px) and (max-width: 759px) {
+    .cancelbtn {
+        width: 100%;
+    }
+
+    .h1-kundvagn {
+        font-size: 4.5vh !important;
+        margin-top: 1em;
+    }
+
+    .divProduct {
+        width: 70%;
+        margin: 1em;
+    }
+
+    .deleteButton {
+        font-size: 3.5vw !important;
+    }
+
+    .h3ForTotal {
+        margin-bottom: 0;
+    }
+
+}
+
+@media screen and (min-width: 760px) and (max-width: 1023px) {
+    
+    h1 {
+        font-size: 1.5em !important;
+    }
+
+    .h1-kundvagn {
+        margin-top: 2em;
+    }
+
+    .deleteButton {
+        font-size: 1.7vw !important;
+    }
+    
+    .divProduct {
+        width: 21%;
+        margin-top: -1em;
+    }
+
+    .wideImg {
+        object-fit: contain;
+        width: 80%;
+        height: 60%;
+    }
+
+    .h3ForTotal {
+        margin-bottom: 0.3em;
+    }
+    
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1299px) {
+
+    .divProduct {
+        width: 22%;    
+    }
+
+    h1 {
+        font-size: 2.3em !important;
+    }
+
+    .wideImg {
+        object-fit: contain;
+        width: 80%;
+        height: 60%;
+    }
+
+    .deleteButton {
+        font-size: 1.7vw !important;
+        width: 60%;
+        height: 10%;
+        padding-bottom: 2em !important;
+        margin-top: 0.5em;
+        margin-bottom: -2em;
+    }
+
+    .h1-kundvagn {
+        margin-top: 1em;
+        margin-bottom: -0.5em;
+    }
+
+    .h3ForTotal {
+        margin-bottom: 1em !important;
+    }
+
+    .loggedInUsernameDiv {
+        width: 100%;
+    }
+
+    .text-center .fButton span {
+        font-size: 0.7em;
+        margin-top: 0;
+    } 
+
+    .text-center .fButton {
+        padding: 0 0.2em 0.3em 0.2em !important;
+        margin-top: 0;
+    }
+
+    
+}

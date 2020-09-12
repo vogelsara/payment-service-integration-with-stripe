@@ -1,0 +1,53 @@
+[
+    {
+        "title": "iPhone X",
+        "description": "Last years phone from Apple with a beautiful all display front.",
+        "image": "images/iPhoneX.png",
+        "price": 11495
+    },{
+        "title": "One Plus 5",
+        "description": "Sleek and powerful smartphone from One Plus.",
+        "image": "images/OnePlus5.png",
+        "price": 4995
+    },{
+        "title": "Galaxy S8",
+        "description": "Really cool edge to edge smartphone from Samsung.",
+        "image": "images/SamsungS8.png",
+        "price": 7990
+    },{
+        "title": "LG V30",
+        "description": "Super nice and beautiful smartphone from LG.",
+        "image": "images/LGV30.png",
+        "price": 7495
+    },{
+        "title": "Iphone XS",
+        "description": "iPhone XS is everything you love about iPhone. Taken to the extreme.",
+        "image": "images/IphoneXs256gb.png",
+        "price": 15489
+    },{
+        "title": "Asus ZenFone",
+        "description": "The AI inside every ZenFone 5Z makes it more than just a smartphone",
+        "image": "images/AsusZenphone5Z.png",
+        "price": 4989
+    },{
+        "title": "Huawei P20",
+        "description": "If you are looking for the current best camera in a smartphone, look no further.",
+        "image": "images/HuaweiP20.png",
+        "price": 7589
+    },{
+        "title": "Galaxy S9",
+        "description": "Invisible details make the difference.",
+        "image": "images/SamsungS9Plus.png",
+        "price": 7990
+    },{
+        "title": "Sony Xperia XZ3",
+        "description": "See more. Hear more. Feel more.",
+        "image": "images/SonyXperiaXz3.png",
+        "price": 7990
+    },{
+        "title": "OnePlus 6T",
+        "description": "Unlock the speed. Capture the night.",
+        "image": "images/Oneplus6T.png",
+        "price": 6295
+    }
+]
