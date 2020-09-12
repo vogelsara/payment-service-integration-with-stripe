@@ -17,12 +17,15 @@ The goal of the project is to build a basic webshop which integrates with Stripe
 
 The backend of the project is built with NodeJS. For the frontend part I reused elements of [an earlier project of ours](https://github.com/vogelsara/TechStore) in which we built the frontend of a simple webshop with product page, products and shopping cart.
 
+*Note: there are things coming from this project I would do different today. For the sake of simplicity I did not change them. For example the project used localstore to store state, for example shopping cart contents, and also the list of available products were stored on the client side. In this project it would make more sense to store them on server side and write an API so the client can get and modify them. But this project is about payment service so I just took the webshop as it is and concentrated on the payment service integration.*
+
 ### Install and run
 
 #### Prerequisites
 
 * To clone the project you need Git. If you don't have git, you can download the foler as a zip file.
 * To install and run the webserver you need NodeJS and NPM. You can get it [here](https://www.npmjs.com/get-npm).
+* Of course you need a web browser.
 
 #### Installation instructions
 
