@@ -1,7 +1,18 @@
 <html>
 <head>
   <title>Thanks for your order!</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/commonStyleForAll.css">
+  <link rel="stylesheet" href="css/cart.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/indexMobile.css">
+  <link rel="stylesheet" href="css/indexTablet.css">
+  <link rel="stylesheet" href="css/indexXl.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous">
   <script src="js/commonFunctions.js"></script>
   <script src="js/success.js"></script>
 </head>
@@ -13,11 +24,17 @@
         <a class="fas fa-shopping-cart text-white navbar-text" href="cart.html" target="_self"></a>
     </div>
   </nav>
-  <section>
-    <p>
-      We appreciate your business! If you have any questions, please email
-      <a href="mailto:orders@example.com">orders@example.com</a>.
-    </p>
-  </section>
+  <main id="mainContent">
+    <div class="text-center displayMessageSluförDittKöp">
+      <p>Thank you for your order</p>
+      <div class="text-center">
+        <a href="index.html">
+          <button class="shopping-button btn-sm fButton">
+            <span>Go to front page</span>
+          </button>
+        </a>
+      </div>
+    </div>
+  </main>  
 </body>
 </html>
