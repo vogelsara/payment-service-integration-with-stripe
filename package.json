@@ -1,0 +1,23 @@
+{
+  "name": "payment-service-integration-with-stripe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vogelsara/payment-service-integration-with-stripe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vogelsara/payment-service-integration-with-stripe/issues"
+  },
+  "homepage": "https://github.com/vogelsara/payment-service-integration-with-stripe#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
