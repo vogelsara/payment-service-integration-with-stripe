@@ -67,24 +67,32 @@ app.post('/order', (req, res) => {
 app.post('/create-session', async (req, res) => {
   const session = await stripe.checkout.sessions.create({
     payment_method_types: ['card'],
-    line_items: [
-      {
-        price_data: {
-          currency: 'usd',
-          product_data: {
-            name: 'Stubborn Attachments',
-            images: ['https://i.imgur.com/EHyR2nP.png'],
-          },
-          unit_amount: 2000,
-        },
-        quantity: 1,
-      },
-    ],
+    line_items: getLineItems(),
     mode: 'payment',
     success_url: `${YOUR_DOMAIN}/success.html`,
     cancel_url: `${YOUR_DOMAIN}/cancel.html`,
   });
   res.json({ id: session.id });
 });
+
+function getLineItems() {
+  let lineItems = [];
+  for (var i = 0; i < shoppingCart.length; i++) {
+    let currentProduct = shoppingCart[i];
+    let currentLineItem = {
+      price_data: {
+        currency: 'sek',
+        product_data: {
+          name: currentProduct["title"],
+          images: [currentProduct["image"]],
+        },
+        unit_amount: currentProduct["price"] * 100,
+      },
+      quantity: 1,
+    };
+    lineItems.push(currentLineItem);
+  }
+  return lineItems;
+}
 
 app.listen(4242, () => console.log('Running on port 4242'));
