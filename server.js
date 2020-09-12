@@ -38,6 +38,30 @@ app.delete('/cart/:id', (req, res) => {
   
   shoppingCart.splice(index, 1);
   res.status(200).json({});
+});
+
+app.post('/order', (req, res) => {
+  if (shoppingCart) {
+    let orders;
+    try {
+      orders = JSON.parse(fs.readFileSync('orders.json'));
+    } catch (err) {
+      orders = [];
+    }
+    let orderedItems = shoppingCart;
+    shoppingCart = [];
+    
+    let date = new Date();
+    let timeStamp = `${date.getFullYear()}-${date.getMonth()+1}-${date.getDate()} ${date.getHours()}:${date.getMinutes()}:${date.getSeconds()}:${date.getMilliseconds()}`;
+    
+    orders.push({timeStamp: timeStamp, orderedItems: orderedItems});
+
+    stringifiedOrders = JSON.stringify(orders, null, 2);
+    fs.writeFileSync('orders.json', stringifiedOrders);
+    res.status(200).json(orderedItems);
+  } else {
+    res.status(404).json({message: "The shopping cart is empty"});
+  }
 })
 
 app.post('/create-session', async (req, res) => {
