@@ -117,13 +117,6 @@ function onShoppingProductButtonClick(listOfProducts) {
     updateNumberOfChosenProducts();
 }
 
-// Update the indicator in the navigation bar
-function updateNumberOfChosenProducts() {
-    var productNumberIndicator = document.getElementById("number-of-chosen-products");
-    var shoppingCartString = localStorage.getItem(getShoppingCartName());
-    var shoppingCartJson = JSON.parse(shoppingCartString);
-    productNumberIndicator.innerText = shoppingCartJson.length;
-}
 
 // shows products that were added to shopping cart with a slidebar
 function showAddedProductInSideBar(showProduct) {
@@ -132,8 +125,4 @@ function showAddedProductInSideBar(showProduct) {
     document.getElementById("prodImg").innerHTML = "<img src=" + showProduct.image + ">";
     
     setTimeout(function() { document.getElementById("sideBar").style.width = 0; }, 3000);
-}
-
-function getShoppingCartName() {
-    return "shoppingCart";
 }

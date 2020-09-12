@@ -12,15 +12,6 @@ function initShoppingCart() {
     createFinishShoppingCardButton()
 }
 
-// Update the indicator in the navigation bar
-function updateNumberOfChosenProducts() {
-    var productNumberIndicator = document.getElementById("number-of-chosen-products");
-    var shoppingCartString = localStorage.getItem(getShoppingCartName());
-    var shoppingCartJson = JSON.parse(shoppingCartString);
-    productNumberIndicator.innerText = shoppingCartJson.length;
-    
-}
-
 function ProductsInKundvagnWebPage (productCartList) {
     var divForHeader;
     var divForTheProductCartList = document.createElement("div");
@@ -155,6 +146,7 @@ function countTotalPrice(){
     main.appendChild(divForTotalPrice)
     return divForTotalPrice
 }
+
 function createFinishShoppingCardButton(){
     var divForButton = document.createElement("div")
     divForButton.classList.add("text-center")
@@ -197,8 +189,4 @@ function onCheckoutButtonClick(){
         .catch(function (error) {
             console.error("Error:", error);
         });
-}
-
-function getShoppingCartName() {
-    return "shoppingCart";
 }
